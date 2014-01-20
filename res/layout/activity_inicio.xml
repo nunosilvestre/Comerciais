@@ -9,8 +9,51 @@
     tools:context=".Inicio" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignRight="@+id/BFornecedores"
+        android:text="@string/Titulo1" />
+
+    <EditText
+        android:id="@+id/Mensagem1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="@string/Msg1" />
+
+    
+
+    <Button
+        android:id="@+id/BClientes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Mensagem1"
+        android:text="@string/BCliente" />
+
+    <Button
+        android:id="@+id/BFornecedores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/BClientes"
+        android:text="@string/BFornecedores" />
+    
+    <Button
+        android:id="@+id/BProdutos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/BFornecedores"
+        android:text="@string/BProdutos" />
+
+    <Button
+        android:id="@+id/BClientesAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/BClientes"
+        android:layout_alignBottom="@+id/BClientes"
+        android:layout_toRightOf="@+id/BClientes"
+        android:text="@string/BClientesAdd" />
 
 </RelativeLayout>

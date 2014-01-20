@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/my_contact_item_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp" />
+
+    <!-- Set the attribute focusable to false for the text view 
+    	 above can be clicable -->
+    <Button
+        android:id="@+id/my_contact_item_telefonar_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="@string/BT1"
+        android:focusable="false" />
+
+    <Button
+        android:id="@+id/my_contact_item_eMail_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/my_contact_item_telefonar_id"
+        android:focusable="false"
+        android:text="@string/BT2" />
+    <Button
+        android:id="@+id/my_contact_item_MAP_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/my_contact_item_eMail_id"
+        android:focusable="false"
+        android:text="@string/BT3" />
+
+</RelativeLayout>

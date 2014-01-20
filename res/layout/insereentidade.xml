@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/inNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/InNome"
+        android:ems="10" >
+	    <requestFocus />
+    </EditText>
+    <EditText
+        android:id="@+id/inMorada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/InMorada"
+        android:inputType="textPostalAddress"
+        android:ems="10" />
+	<EditText
+        android:id="@+id/inCidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/InCidade"
+        android:ems="10" />
+	<EditText
+        android:id="@+id/inCP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/InCP"
+        android:ems="10" />
+	<EditText
+        android:id="@+id/inTelefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/InTelefone"
+        android:ems="10" />
+	<EditText
+        android:id="@+id/inTelemovel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/InTelemovel"
+        android:ems="10" />
+	<EditText
+        android:id="@+id/inEMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/InEMail"
+        android:inputType="textEmailAddress"
+        android:ems="10" />
+	 <Button
+        android:id="@+id/BTgravar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BTGravar" />
+
+</LinearLayout>

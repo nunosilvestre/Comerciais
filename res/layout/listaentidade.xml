@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    
+    <TextView
+        android:id="@+id/outNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/OutNome"
+        android:ems="10" >
+	</TextView>
+    
+    <TextView
+        android:id="@+id/outMorada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/OutMorada"
+        android:ems="10" />
+	<TextView
+        android:id="@+id/outCidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/OutCidade"
+        android:ems="10" />
+	<TextView
+        android:id="@+id/outCP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/OutCP"
+        android:ems="10" />
+	<TextView
+        android:id="@+id/outTelefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/OutTelefone"
+        android:ems="10" />
+	<TextView
+        android:id="@+id/outTelemovel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/OutTelemovel"
+        android:ems="10" />
+	<TextView
+        android:id="@+id/outEMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/OutEMail"
+        android:ems="10" />
+	 
+
+	 
+
+</LinearLayout>

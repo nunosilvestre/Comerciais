@@ -1,8 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="LB_Contactos">Contactos</string>
+    
     <string name="app_name">Comerciais</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="Titulo1">Comerciais!</string>
+    <string name="Msg1">Texto de abertura, a preencher com texto da BD</string>
+    <string name="BCliente">Clientes</string>
+    <string name="BClientesAdd">Adicionar Clientes</string>
+    <string name="BFornecedores">Fornecedores</string>
+    <string name="BProdutos">Produtos</string>
+    
+    <string name="email_adress">Email</string>
+	<string name="email_adress_hint">Email Sender</string>
+    <string name="email_assinatura">Assinatura</string>
+	<string name="email_assinatura_hint">Texto assinatura Email</string>
+	<string name="user_BD">User BD</string>
+	<string name="user_BD_hint">Utilizador Acesso BD Externa</string>
+	<string name="pass_BD">Pass BD</string>
+	<string name="pass_BD_hint">Password Acesso BD Externa</string>
+	
+	<string name="adiciona_contacto_menu">Adicionar</string>
+	<string name="manter_contacto_menu">Manutenção</string>
+	<string name="BT1">tel</string>
+	<string name="BT2">eM</string>
+	<string name="BT3">MAP</string>
+	<string name="BTGravar">Gravar</string>
+	<string name="BTDelete">Del</string>
+	
+	<string name="InNome">Inserir nome</string>
+	<string name="InMorada">Inserir morada</string>
+	<string name="InCidade">Inserir cidade</string>
+	<string name="InCP">Inserir CP</string>
+	<string name="InTelefone">Inserir telefone</string>
+	<string name="InTelemovel">Inserir telemovel</string>
+	<string name="InEMail">Inserir eMail</string>
+	
+	<string name="OutNome">Nome</string>
+	<string name="OutMorada">Morada</string>
+	<string name="OutCidade">Cidade</string>
+	<string name="OutCP">CP</string>
+	<string name="OutTelefone">Telefone</string>
+	<string name="OutTelemovel">Telemovel</string>
+	<string name="OutEMail">eMail</string>
+	
+	<string name="SGoogle">Google Maps</string>
+	<string name="button_send">Enviar</string>
+	
+	
 
 </resources>

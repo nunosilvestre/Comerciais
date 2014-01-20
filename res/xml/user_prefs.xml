@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+	
+    <EditTextPreference 
+        android:key="signature"
+        android:summary="@string/email_assinatura"
+        android:title="@string/email_assinatura_hint"
+        />
+	<EditTextPreference 
+        android:key="email"
+        android:summary="@string/email_adress"
+        android:title="@string/email_adress_hint"
+        />
+	<EditTextPreference 
+        android:key="userbd"
+        android:summary="@string/user_BD"
+        android:title="@string/user_BD_hint"
+        />
+	<EditTextPreference 
+        android:key="passbd"
+        android:summary="@string/pass_BD"
+        android:title="@string/pass_BD_hint"
+        />
+</PreferenceScreen>
