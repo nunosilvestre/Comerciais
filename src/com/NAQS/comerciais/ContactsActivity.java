@@ -2,6 +2,8 @@ package com.NAQS.comerciais;
 
 import org.apache.http.protocol.HTTP;
 
+import com.NAQS.comerciais.providers.ContactsContract;
+import com.NAQS.comerciais.Inicio;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -57,14 +59,14 @@ public class ContactsActivity extends ListActivity
 			@Override
 			public Loader<Cursor> onCreateLoader(int id, Bundle args)
 			{
-				return new CursorLoader(ContactsActivity.this, com.NAQS.comerciais.providers.ContactsContract.CONTENT_URI, null, null, null, null);
+				return new CursorLoader(ContactsActivity.this, ContactsContract.CONTENT_URI, null, null, null, null);
 			}
 
 			@Override
 			public void onLoadFinished(Loader<Cursor> loader, Cursor cursor)
 			{
 				// Register this cursor to "watch" the changes occurred in the specified URI.
-				cursor.setNotificationUri(getContentResolver(), com.NAQS.comerciais.providers.ContactsContract.CONTENT_URI);
+				cursor.setNotificationUri(getContentResolver(), ContactsContract.CONTENT_URI);
 				_adapter.swapCursor(cursor);
 			}
 
@@ -98,13 +100,13 @@ public class ContactsActivity extends ListActivity
 			Intent intent = new Intent(ContactsActivity.this, ListaCliente.class);
 			intent.setType(HTTP.PLAIN_TEXT_TYPE);
 			
-			intent.putExtra(com.NAQS.comerciais.Inicio.NOME, cursor.getString(cursor.getColumnIndex(com.NAQS.comerciais.providers.ContactsContract.NOME)));
-			intent.putExtra(com.NAQS.comerciais.Inicio.MORADA, cursor.getString(cursor.getColumnIndex(com.NAQS.comerciais.providers.ContactsContract.MORADA))); // recipients.
-			intent.putExtra(com.NAQS.comerciais.Inicio.CIDADE, cursor.getString(cursor.getColumnIndex(com.NAQS.comerciais.providers.ContactsContract.CIDADE))); // recipients.
-			intent.putExtra(com.NAQS.comerciais.Inicio.CP, cursor.getString(cursor.getColumnIndex(com.NAQS.comerciais.providers.ContactsContract.CP))); // recipients.
-			intent.putExtra(com.NAQS.comerciais.Inicio.TELEMOVEL, cursor.getString(cursor.getColumnIndex(com.NAQS.comerciais.providers.ContactsContract.TELEMOVEL))); // recipients.
-			intent.putExtra(com.NAQS.comerciais.Inicio.TELEFONE, cursor.getString(cursor.getColumnIndex(com.NAQS.comerciais.providers.ContactsContract.TELEFONE))); // recipients.
-			intent.putExtra(com.NAQS.comerciais.Inicio.EMAIL, cursor.getString(cursor.getColumnIndex(com.NAQS.comerciais.providers.ContactsContract.EMAIL))); // recipients.
+			intent.putExtra(Inicio.NOME, cursor.getString(cursor.getColumnIndex(ContactsContract.NOME)));
+			intent.putExtra(Inicio.MORADA, cursor.getString(cursor.getColumnIndex(ContactsContract.MORADA))); // recipients.
+			intent.putExtra(Inicio.CIDADE, cursor.getString(cursor.getColumnIndex(ContactsContract.CIDADE))); // recipients.
+			intent.putExtra(Inicio.CP, cursor.getString(cursor.getColumnIndex(ContactsContract.CP))); // recipients.
+			intent.putExtra(Inicio.TELEMOVEL, cursor.getString(cursor.getColumnIndex(ContactsContract.TELEMOVEL))); // recipients.
+			intent.putExtra(Inicio.TELEFONE, cursor.getString(cursor.getColumnIndex(ContactsContract.TELEFONE))); // recipients.
+			intent.putExtra(Inicio.EMAIL, cursor.getString(cursor.getColumnIndex(ContactsContract.EMAIL))); // recipients.
 
 			// Start the new activity using the explicit intent created previously.
 			startActivity(intent);
@@ -142,9 +144,11 @@ public class ContactsActivity extends ListActivity
 		@Override
 		public void bindView(View v, Context ctx, final Cursor cursor) 
 		{
-			Holder h = (Holder)v.getTag(); 
 			
-			h.tv.setText(cursor.getString(cursor.getColumnIndex(com.NAQS.comerciais.providers.ContactsContract.NOME)));
+			final Holder h = (Holder)v.getTag();
+			
+			h.position = cursor.getPosition();;
+			h.tv.setText(cursor.getString(cursor.getColumnIndex(ContactsContract.NOME)));
 			// Set the delete action in the btn.
 			h.bt1.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -158,15 +162,22 @@ public class ContactsActivity extends ListActivity
 					//startService(intent);
 				}
 			});
-				h.bt2.setOnClickListener(new View.OnClickListener() {
-					@Override
+			h.bt2.setOnClickListener(new View.OnClickListener() {
+				int position = h.position;	
+				@Override
 					public void onClick(View v) 
 					{
 						// Start activity to remove.
 						//TODO email
+						
+						
+						int position = h.position;
+						
+						cursor.moveToPosition(position);
 						Intent intent = new Intent(Intent.ACTION_SEND);
 						intent.setType(HTTP.PLAIN_TEXT_TYPE);
-						intent.putExtra(Intent.EXTRA_EMAIL, new String[] {cursor.getString(cursor.getColumnIndex(com.NAQS.comerciais.providers.ContactsContract.EMAIL))}); // recipients.
+						String eMail = cursor.getString(cursor.getColumnIndex(ContactsContract.EMAIL));
+						intent.putExtra(Intent.EXTRA_EMAIL, new String[] {cursor.getString(cursor.getColumnIndex(ContactsContract.EMAIL))}); // recipients.
 						intent.putExtra(Intent.EXTRA_SUBJECT, "Hello");
 						//intent.putExtra(Intent.EXTRA_TEXT, body);
 						startActivity(intent);
@@ -178,9 +189,14 @@ public class ContactsActivity extends ListActivity
 					{
 						// Start activity to remove.
 						//TODO email
+						int position = h.position;
+						
+						
+						cursor.moveToPosition(position);
+						//Cursor cursor = (Cursor)l.getItemAtPosition(id);
 						Intent intent = new Intent(ContactsActivity.this, GoogleMaps.class);
 						intent.putExtra(com.NAQS.comerciais.Inicio.GOOGLEMarkerIni, "Praca Saldanha,Lisboa");
-						intent.putExtra(com.NAQS.comerciais.Inicio.GOOGLEMarkerFim, cursor.getString(cursor.getColumnIndex(com.NAQS.comerciais.providers.ContactsContract.MORADA))+ "," + cursor.getString(cursor.getColumnIndex(com.NAQS.comerciais.providers.ContactsContract.CIDADE)));
+						intent.putExtra(com.NAQS.comerciais.Inicio.GOOGLEMarkerFim, cursor.getString(cursor.getColumnIndex(ContactsContract.MORADA))+ "," + cursor.getString(cursor.getColumnIndex(ContactsContract.CIDADE)));
 						// Start the new activity using the explicit intent created previously.
 						startActivity(intent);
 					}
@@ -191,12 +207,15 @@ public class ContactsActivity extends ListActivity
 		public View newView(Context arg0, Cursor arg1, ViewGroup arg2)
 		{
 			Holder h = new Holder(); 
+			
 			View v = getLayoutInflater().inflate(R.layout.contact_item, null); 
 			h.tv = (TextView)v.findViewById(R.id.my_contact_item_id);
 			h.bt1 = (Button)v.findViewById(R.id.my_contact_item_telefonar_id);
 			h.bt2 = (Button)v.findViewById(R.id.my_contact_item_eMail_id);
-			h.bt3 = (Button)v.findViewById(R.id.my_contact_item_MAP_id);
+			h.bt3 = (Button)v.findViewById(R.id.my_contact_item_MAP_id);			
+			
 			v.setTag(h);
+			
 			return v;
 		}
 		
@@ -210,6 +229,8 @@ public class ContactsActivity extends ListActivity
 			Button bt1;
 			Button bt2;
 			Button bt3;
+			int position;
+			
 		}
 		
 		

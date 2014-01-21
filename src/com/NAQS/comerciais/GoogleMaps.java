@@ -80,7 +80,9 @@ public class GoogleMaps extends FragmentActivity
 	        //double latitudeAqui = getIntent().getDoubleExtra("latitudemapa", 0); //traz da activitymain o conteudo da variavel latitudemapa, com as coordenadas GPS
 	        //double longitudeAqui = getIntent().getDoubleExtra("longitudemapa",0);
 	        //JSONObject jsonObject = getLocationInfo("calcada galvao 139 porta b, 1400-167 lisboa");
-	        new DownloadFilesTask().execute();
+	        String partida = GoogleMaps.this.getIntent().getStringExtra(com.NAQS.comerciais.Inicio.GOOGLEMarkerIni);
+	        String chegada = GoogleMaps.this.getIntent().getStringExtra(com.NAQS.comerciais.Inicio.GOOGLEMarkerFim);
+	        new DownloadFilesTask().execute(chegada);
 	        
 
 	        double latitudeAqui = -33.867; //traz da activitymain o conteudo da variavel latitudemapa, com as coordenadas GPS
@@ -109,7 +111,7 @@ public class GoogleMaps extends FragmentActivity
 		    public static JSONObject getLocationInfo(String address) {
 		        StringBuilder stringBuilder = new StringBuilder();
 		        try {
-		        address = "calcada galvao 139 porta b, 1400-167 lisboa";
+		        //address = "calcada galvao 139 porta b, 1400-167 lisboa";
 		        address = address.replaceAll(" ","%20");    
 
 		        HttpPost httppost = new HttpPost("http://maps.google.com/maps/api/geocode/json?address=" + address + "&sensor=false");
@@ -141,15 +143,15 @@ public class GoogleMaps extends FragmentActivity
 		    } 
 			
 
-		    private class DownloadFilesTask extends AsyncTask<Void, Void, JSONObject> {
+		    private class DownloadFilesTask extends AsyncTask<String, Void, JSONObject> {
 
 				@Override
-				protected JSONObject doInBackground(Void... arg0) {
+				protected JSONObject doInBackground(String... morada) {
 					
 					//String partida = GoogleBMP.this.getIntent().getStringExtra(com.NAQS.comerciais.Inicio.GOOGLEMarkerIni);
 			        //String chegada = GoogleBMP.this.getIntent().getStringExtra(com.NAQS.comerciais.Inicio.GOOGLEMarkerFim);
 			        			
-					return getLocationInfo("calcada galvao 139 porta b, 1400-167 lisboa");
+					return getLocationInfo(morada[0]);
 							
 				}
 			    @Override
