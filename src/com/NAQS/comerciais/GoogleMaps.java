@@ -53,8 +53,8 @@ import android.content.res.XmlResourceParser;
 public class GoogleMaps extends FragmentActivity 
 {
 	
-	private double longituteGPS = -9.1479472;
-	private double latitudeGPS = 38.7343564;
+//	private double longituteGPS = -9.1479472;
+//	private double latitudeGPS = 38.7343564;
 	
 		    @Override
 	    protected void onCreate(Bundle savedInstanceState) {

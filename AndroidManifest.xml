@@ -50,6 +50,7 @@
         <activity android:name="com.NAQS.comerciais.ListaCliente" />
         <activity android:name="com.NAQS.comerciais.GoogleBMP" />
         <activity android:name="com.NAQS.comerciais.GoogleMaps" />
+        <activity android:name="com.NAQS.comerciais.Produtos" />
 
         <receiver android:name="com.NAQS.comerciais.ChangeConnectivityCapture" >
             <intent-filter>

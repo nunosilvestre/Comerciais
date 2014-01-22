@@ -96,7 +96,7 @@ public class Inicio extends Activity {
 			public void onClick(View v) 
 			{
 				
-				Intent intent = new Intent(Inicio.this, ContactsActivity.class);
+				Intent intent = new Intent(Inicio.this, Produtos.class);
 				// Start the new activity using the explicit intent created previously.
 				startActivity(intent);
 			}
