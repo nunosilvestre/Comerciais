@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.content.Loader;
 import android.content.DialogInterface.OnClickListener;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.CursorAdapter;
 import android.util.Log;
@@ -156,10 +157,15 @@ public class ContactsActivity extends ListActivity
 				{
 					// Start activity to remove.
 					//TODO telefonar
-					//int id = cursor.getInt(cursor.getColumnIndex(ContactsContract._ID));
-					//Intent intent = new Intent(ContactsAdapter.this._ctx, RemoveContactService.class);
-					//intent.putExtra(RemoveContactService.POSITION, id);
-					//startService(intent);
+					int position = h.position;
+					cursor.moveToPosition(position);
+					Intent intent = new Intent(Intent.ACTION_CALL);
+					String numero = cursor.getString(cursor.getColumnIndex(ContactsContract.TELEMOVEL));
+					intent.setData(Uri.parse("tel:" +numero)); // recipients.
+					
+					//intent.putExtra(Intent.EXTRA_TEXT, body);
+					startActivity(intent);
+
 				}
 			});
 			h.bt2.setOnClickListener(new View.OnClickListener() {
@@ -169,14 +175,11 @@ public class ContactsActivity extends ListActivity
 					{
 						// Start activity to remove.
 						//TODO email
-						
-						
 						int position = h.position;
-						
 						cursor.moveToPosition(position);
 						Intent intent = new Intent(Intent.ACTION_SEND);
 						intent.setType(HTTP.PLAIN_TEXT_TYPE);
-						String eMail = cursor.getString(cursor.getColumnIndex(ContactsContract.EMAIL));
+						//String eMail = cursor.getString(cursor.getColumnIndex(ContactsContract.EMAIL));
 						intent.putExtra(Intent.EXTRA_EMAIL, new String[] {cursor.getString(cursor.getColumnIndex(ContactsContract.EMAIL))}); // recipients.
 						intent.putExtra(Intent.EXTRA_SUBJECT, "Hello");
 						//intent.putExtra(Intent.EXTRA_TEXT, body);
@@ -195,7 +198,7 @@ public class ContactsActivity extends ListActivity
 						cursor.moveToPosition(position);
 						//Cursor cursor = (Cursor)l.getItemAtPosition(id);
 						Intent intent = new Intent(ContactsActivity.this, GoogleMaps.class);
-						intent.putExtra(com.NAQS.comerciais.Inicio.GOOGLEMarkerIni, "Praca Saldanha,Lisboa");
+						//intent.putExtra(com.NAQS.comerciais.Inicio.GOOGLEMarkerIni, "Praca Saldanha,Lisboa");
 						intent.putExtra(com.NAQS.comerciais.Inicio.GOOGLEMarkerFim, cursor.getString(cursor.getColumnIndex(ContactsContract.MORADA))+ "," + cursor.getString(cursor.getColumnIndex(ContactsContract.CIDADE)));
 						// Start the new activity using the explicit intent created previously.
 						startActivity(intent);

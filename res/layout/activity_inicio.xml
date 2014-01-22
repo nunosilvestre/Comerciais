@@ -12,48 +12,54 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/BFornecedores"
         android:text="@string/Titulo1" />
-
-    <EditText
-        android:id="@+id/Mensagem1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="@string/Msg1" />
-
-    
 
     <Button
         android:id="@+id/BClientes"
+        android:layout_marginTop="28dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Mensagem1"
-        android:text="@string/BCliente" />
+        android:background="@drawable/adn_clientes"/>
 
     <Button
         android:id="@+id/BFornecedores"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/BClientes"
-        android:text="@string/BFornecedores" />
+        android:background="@drawable/adn_fornecedores"/>
     
     <Button
         android:id="@+id/BProdutos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/BFornecedores"
-        android:text="@string/BProdutos" />
+        android:background="@drawable/adn_produtos" />
 
-    <Button
-        android:id="@+id/BClientesAdd"
+    <TextView
+        android:id="@+id/TextView02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/BClientes"
+        android:layout_alignBottom="@+id/BProdutos"
+        android:layout_alignLeft="@+id/editText1"
+        android:ems="10"
+        android:text="@string/BProdutos" />
+
+    <TextView
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/BFornecedores"
+        android:layout_toRightOf="@+id/BFornecedores"
+        android:ems="10"
+        android:text="@string/BFornecedores" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/BClientes"
         android:layout_toRightOf="@+id/BClientes"
-        android:text="@string/BClientesAdd" />
+        android:ems="10"
+        android:text="@string/BCliente" />
 
 </RelativeLayout>

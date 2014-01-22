@@ -151,7 +151,7 @@ public class GoogleMaps extends FragmentActivity
 			                .getJSONObject("geometry").getJSONObject("location")
 			                .getDouble("lat");
 
-			            LatLng origem = new LatLng(latitudeGPS, longituteGPS);
+			            LatLng origem = new LatLng(Inicio.GPSLatitude, Inicio.GPSLongitude);
 			            LatLng destino = new LatLng(latitude, longitute);
 //				        Toast.makeText (this,latitude+"",Toast.LENGTH_SHORT).show();
 //				        Toast.makeText (this,longitute+"",Toast.LENGTH_SHORT).show();
